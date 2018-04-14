@@ -5,7 +5,14 @@
   <title>TheoryHub</title>
   <base href="/">
 
+  <!-- Meta is for mobile devices -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="msapplication-starturl" content="/">
+  <meta name="theme-color" content="#f48c5b">
+  <link rel="manifest" href="/manifest.json">
+
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
   <script>
@@ -23,5 +30,20 @@
 </head>
 <body>
   <app-root></app-root>
+
+  <!-- Script for our Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+
+      .then((registration) => {
+        console.log('SW registered');
+      })
+      .catch((err) => {
+        console.log('SW error', err);
+      })
+    }
+  </script>
+
 </body>
 </html>

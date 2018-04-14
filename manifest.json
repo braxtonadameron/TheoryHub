@@ -1,0 +1,19 @@
+{
+  "short_name": "TheoryHub",
+  "name": "Online Hub for Theories",
+  "start_url": "/",
+
+  "theme_color": "#f48c5b",
+  "background_color": "#ffffff",
+
+  "display": "standalone",
+  "orientation": "portrait",
+
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/ico"
+    }
+  ]
+}
