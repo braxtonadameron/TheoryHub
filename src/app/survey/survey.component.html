@@ -1,0 +1,89 @@
+<h1 mat-dialog-title>Survey for {{ data.theory.title }}</h1>
+<div mat-dialog-content>
+  <!-- <button mat-raised-button (click)="isLinear = true" id="toggle-linear">Enable linear mode</button> -->
+  <!-- Make this a Dynamic Form! This is a great example for it -->
+  <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+    <mat-step [stepControl]="firstFormGroup">
+      <form class="basic-container" [formGroup]="firstFormGroup">
+        <ng-template matStepLabel></ng-template>
+        <p>{{ questions[0] }}</p>
+        <div class="basic-container">
+          <mat-radio-group formCtonrolName="firstCtrl">
+            <mat-radio-button *ngFor="let option of options4" [value]="option">
+              {{option}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div>
+          <button mat-raised-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form class="basic-container" [formGroup]="secondFormGroup">
+        <ng-template matStepLabel></ng-template>
+        <p>{{ questions[1] }}</p>
+        <mat-form-field>
+          <input matInput placeholder="Address" formControlName="secondCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button matStepperPrevious>Back</button>
+          <button mat-raised-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup">
+      <form class="basic-container" [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel></ng-template>
+        <p>{{ questions[2] }}</p>
+        <mat-form-field>
+          <input matInput placeholder="Last name, First name" formControlName="thirdCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button matStepperPrevious>Back</button>
+          <button mat-raised-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="fourthFormGroup">
+      <form class="basic-container" [formGroup]="fourthFormGroup">
+        <ng-template matStepLabel></ng-template>
+        <p>{{ questions[3] }}</p>
+        <mat-form-field>
+          <input matInput placeholder="Last name, First name" formControlName="fourthCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button matStepperPrevious>Back</button>
+          <button mat-raised-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="fifthFormGroup">
+      <form class="basic-container" [formGroup]="fifthFormGroup">
+        <ng-template matStepLabel></ng-template>
+        <p>{{ questions[4] }}</p>
+        <mat-form-field>
+          <input matInput placeholder="Last name, First name" formControlName="fifthCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button matStepperPrevious>Back</button>
+          <button mat-raised-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <div class="basic-container">
+        <ng-template matStepLabel>Done</ng-template>
+        Thanks for completing the Survey!
+        <div>
+          <button mat-raised-button matStepperPrevious>Back</button>
+          <button mat-raised-button (click)="stepper.reset()">Reset</button>
+        </div>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button [mat-dialog-close]="submit()" cdkFocusInitial>Submit</button>
+</div>

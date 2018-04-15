@@ -1,0 +1,16 @@
+<mat-accordion *ngFor="let theory of theories | async"
+               (click)="select(theory)"
+               class="basic-container">
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                        (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ theory.title }}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{ theory.type }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <theory *ngIf="theory === selectedTheory" [theory]="selectedTheory"></theory>
+  </mat-expansion-panel>
+</mat-accordion>

@@ -14,6 +14,7 @@
   <link rel="manifest" href="/manifest.json">
 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
   <script>
     // Initialize Firebase
@@ -29,8 +30,9 @@
   </script>
 </head>
 <body>
-  <app-root></app-root>
-
+  <div class="mat-app-background basic-container">
+    <app-root></app-root>
+  </div>
   <!-- Script for our Service Worker -->
   <script>
     if ('serviceWorker' in navigator) {

@@ -1,0 +1,9 @@
+<h4>Summary</h4>
+<p>{{ theory.summary }}</p>
+<h4>Evidence</h4>
+<ul>
+  <li *ngFor="let ev of theory.evidence">
+    {{ ev }}
+  </li>
+</ul>
+<button mat-raised-button (click)="openDialog(theory)">Survey</button>
